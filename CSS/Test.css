@@ -1,0 +1,545 @@
+:root{
+    --Color-Head-Page: #EEEEEE;
+    --Color-BackGround: #fff;
+    --Color-s: silver;
+}
+
+*, *:before, *:after{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* .wrapper{
+
+} */
+
+.container{
+    max-width: 1920px;
+    margin: 0px auto;
+    padding: 0px 10px;
+}
+
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    padding: 0px 10px 0px 10px;
+}
+.header:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Color-Head-Page); 
+    z-index: 2;
+}
+
+.header_body{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+}
+
+.header_logo{
+    flex: 0 0 60px;
+    /* border-radius: 50%; */
+    overflow: hidden;
+    position: relative;
+    z-index: 3 ;
+}
+
+.header_logo img{
+  height: 60px;
+  width: 60px;
+}
+
+/* Footer */
+.Footer{
+    background-color: var(--Color-Head-Page);
+    padding: 0;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px 20.3px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Footer img{
+  height: 60px;
+  width: 60px;
+}
+
+.header_burger{
+    display: none;
+}
+
+/* .header_menu{} */
+
+.header_list{
+    display: flex;
+    position: relative;
+    z-index: 2;
+}
+
+.header_list li{
+    list-style: none;
+    margin: 0px 0px 0px 20px;
+}
+
+.header_link{
+    color: black;
+    text-transform: uppercase;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* Navigation */
+.header_link:hover{
+  font-size: 20px;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+}
+
+.header_link.active{
+  color: rgb(162, 162, 162);
+}
+
+@media (max-width:767px){
+
+    body.lock{
+        overflow: hidden;
+    }
+
+    .header_body{
+        height: 50px;
+    }
+
+    .header_logo{
+        flex: 0 0 40px;
+    }
+
+    .header_logo img{
+      height: 40px;
+      width: 40px;
+    }
+    
+    .Footer img{
+      height: 40px;
+      width: 40px;
+    }
+
+    .header_burger{
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .header_burger span{
+        position: absolute;
+        background-color: var(--Color-s);
+        left: 0;
+        width: 100%;
+        height: 2px;
+        top: 50%;
+        transition: all 0.3s ease 0s;
+    }
+
+    .header_burger:before,
+    .header_burger:after{
+        content: '';
+        background-color: var(--Color-s);
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+
+    .header_burger:hover span,
+    .header_burger:hover:before,
+    .header_burger:hover:after {
+        background-color: rgb(162, 162, 162);
+    }
+
+    .header_burger:before{
+        top: 10%;
+    }
+    .header_burger:after{
+        bottom: 0;
+    }
+
+    .header_burger.active span{
+        transform: scale(0);
+    }
+
+    .header_burger.active:before{
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    .header_burger.active:after{
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+
+    .header_menu{
+        position: fixed;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        transition: all 0.5s ease 0s;
+        background-color: #dadada;
+        padding: 70px 10px 20px 10px;
+    }
+
+    .header_menu.active{
+        top: 0;
+    }
+
+    .header_list{
+        display: block;
+    }
+    .header_list li{
+        margin: 0px 0px 20px 0px;
+    }
+
+    .header_link{
+        font-size: 18px;
+    }
+}
+
+/* Main */
+
+.content{
+    background-color: #CEDCEC;
+    background-image: url("back.jpg");
+    background-size: cover;
+    background-attachment: fixed; 
+    padding: 0;
+    min-height: 280vh;
+    max-width: 100%
+}
+
+.content_container{
+    padding: 50px 35px 0;
+    height: auto;
+    width: 75%;
+    background: var(--Color-BackGround);
+    position: absolute;
+    left: 50%;
+    top: 160px;
+    border-radius: 15px;
+    overflow: hidden;
+    transform: translateX(-50%); /* Додаємо це для центрування */
+}
+
+/* Slider */
+.Slider-Body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container_slider > input{
+    display: none;
+}
+
+.container_slider {
+    width: 100%;
+    height: 100%;
+    max-width: 600px;
+    max-height: 600px;
+    display: flex;
+    transform-style: preserve-3d;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cards {
+    position: relative;
+    height: 500px;
+    width: 430px;
+    margin-bottom: 20px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+  
+  .cards label {
+    position: absolute;
+    width: 430px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.55s ease;
+  }
+  
+  .cards .card{
+    position: relative;
+    height: 100%;
+    background-color: #323444;
+    border-radius: 10px;
+    padding: 30px 35px;
+  }
+  
+  .card .image{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card .image img{
+    border-radius: 5px;
+    box-shadow: 15px 15px 40px rgba(0, 0, 0, 50%);
+    margin-top: 23px;
+    width: 86%;
+    height: 220px;
+    object-fit: cover;
+  }
+  
+  .card .image img:hover{
+    transform: scale(1.05);
+  }
+  
+  .card .image .dots{
+    text-align: center;
+  }
+  
+  .dots div{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .dots div:nth-child(1){
+    background-color: var(--current-color1);
+  }
+  
+  .dots div:nth-child(2){
+    background-color: #5B85F9;
+  }
+  
+  .dots div:nth-child(3){
+    background-color: #000;
+  }
+  
+  .card .infos{
+    display: block;
+    text-align: end;
+    padding-top: 60px;
+  }
+  
+  .infos span{
+    display: block;
+  }
+  
+  .infos .name{
+    font-size: 30px;
+    color: var(--current-color1);
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    padding-left: 25%;
+    transition: all .6s ease;
+  }
+  
+  .card .btn-details{
+    width: 100%;
+    height: 60px;
+    margin: 35px auto;
+    border-radius: 5px;
+    background-color: var(--current-color1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Color-BackGround);
+    font-size: 25px;
+    letter-spacing: 10px;
+    font-weight: 700;
+    transition: all .7s ease;
+  }
+  
+  .card .btn-details:hover{
+    transform: scale(1.09);
+  }
+  
+  .card .actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+  }
+  
+  .actions i{
+  
+    font-size: 25px;
+    transition: all .7s ease;
+    color: var(--current-color2);
+  }
+   
+  #s1:checked~.cards #slide4,
+  #s2:checked~.cards #slide5,
+  #s3:checked~.cards #slide1,
+  #s4:checked~.cards #slide2,
+  #s5:checked~.cards #slide3 {
+    /* box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 45%); */
+    transform: translate3d(-70%, 0, -220px);
+    --current-color1: #ECEAED;
+    --current-color2: #404457;
+  }
+  
+  #s1:checked~.cards #slide5,
+  #s2:checked~.cards #slide1,
+  #s3:checked~.cards #slide2,
+  #s4:checked~.cards #slide3,
+  #s5:checked~.cards #slide4 {
+    /* box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%); */
+    transform: translate3d(-35%, 0, -120px);
+    --current-color1: #ECEAED;
+    --current-color2: #404457;
+  }
+  
+  #s1:checked~.cards #slide1,
+  #s2:checked~.cards #slide2,
+  #s3:checked~.cards #slide3,
+  #s4:checked~.cards #slide4,
+  #s5:checked~.cards #slide5 {
+    /* box-shadow: 0 25px 50px 0 rgba(0, 0, 0, 50%); */
+    transform: translate3d(0, 0, 0);
+    --current-color1: #fad00c;
+    --current-color2: #ECEAED;
+  }
+  
+  #s1:checked~.cards #slide2,
+  #s2:checked~.cards #slide3,
+  #s3:checked~.cards #slide4,
+  #s4:checked~.cards #slide5,
+  #s5:checked~.cards #slide1 {
+    /* box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 45%); */
+    transform: translate3d(35%, 0, -120px);
+    --current-color1: #ECEAED;
+    --current-color2: #404457;
+  }
+  
+  #s1:checked~.cards #slide3,
+  #s2:checked~.cards #slide4,
+  #s3:checked~.cards #slide5,
+  #s4:checked~.cards #slide1,
+  #s5:checked~.cards #slide2 {
+    /* box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 45%); */
+    transform: translate3d(70%, 0, -220px);
+    --current-color1: #ECEAED;
+    --current-color2: #404457;
+}
+
+@media (max-width: 767px) {
+    .container_slider {
+        max-width: 510px;
+        max-height: 500px;
+        overflow: hidden;
+    }
+
+    .cards {
+        height: 460px;
+        width: 500px;
+    }
+
+    .cards label {
+        width: 260px;
+    }
+
+    .card .image img {
+        height: 160px;
+        width: 90%;
+    }
+
+    .card .btn-details{
+        height: 40px;
+        width: 80%;
+    }
+
+    .infos .name{
+        font-size: 24px;
+        letter-spacing: 6px;
+        margin-bottom: 15px;
+    }
+}
+
+/* Museums */
+.First-Museum,
+.Zodiac-Museum{
+  width: 98%;
+  text-align: justify;
+  padding: 10px;
+}
+
+.Museum-image,
+.Museum-Zodiac-image{
+  height: 300px;
+  width: 350px;
+  z-index: 0;
+  position: relative;
+  float: left;
+  margin-right: 10px;
+}
+
+.Zodiac-Museum{
+  clear: both;
+}
+
+.Zodiac_Museum_Name,
+.First-Museum-Name{
+  text-align: center;
+  padding-top: 180px;
+  padding-bottom: 16px;
+}
+
+.Museum-Info{
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.Linked{
+  color: black;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 767px){
+    .Museum-image,
+    .Museum-Zodiac-image{
+    height: 160px;
+    width: 190px;
+    }
+}
